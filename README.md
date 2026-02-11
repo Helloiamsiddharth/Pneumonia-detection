@@ -14,7 +14,7 @@ This project uses **chest X-ray images** and modern deep learning techniques to 
 - Data augmentation to handle class imbalance and small dataset size
 - Model evaluation with **accuracy**, **precision**, **recall**, **F1-score**, **ROC-AUC**
 - Grad-CAM visualizations for model interpretability
-- Simple web demo / inference script (optional)
+- web application using streamlit
 
 ## Dataset
 
@@ -31,10 +31,10 @@ The model is trained on the widely-used **Chest X-Ray Images (Pneumonia)** datas
 ## Model Architecture
 
 ### Best Performing Model (as of now)
-- Backbone: **EfficientNetB3** / **ResNet50** / **DenseNet121** (transfer learning from ImageNet)
+- Backbone: **EfficientNetB3** / **ResNet50** / **DenseNet121**
 - Custom head: Global Average Pooling → Dense layers → Sigmoid output
-- Input size: 224×224 or 300×300 (depending on backbone)
-- Optimizer: **Adam** (with learning rate scheduler)
+- Input size: 224×224 or 300×300 
+- Optimizer: **Adam**
 - Loss: **Binary Crossentropy**
 - Regularization: Dropout, Batch Normalization, data augmentation
 
