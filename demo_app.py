@@ -9,7 +9,7 @@ model = load_model(MODEL_PATH)
 def preprocess_image(img_array):
     """Apply classical CV techniques to image array (H, W, C) in [0, 255]."""
     # Convert to uint8
-    img_array = np.clip(img_array * 255, 0, 255).astype(np.uint8)
+    img_array = np.clip(img_array * 255, 0, 255).astype(np.uint8) #Preprocessing data
     
     # Grayscale conversion
     if img_array.shape[-1] == 3:
@@ -51,7 +51,7 @@ def predict(image):
 st.title("Pneumonia Detection from Chest X-Ray")
 st.write("Upload a chest X-ray image (.jpg/.png) to get prediction.")
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"]) #Uploaded files
 
 if uploaded_file is not None:
     label, conf, img = predict(uploaded_file)
@@ -60,4 +60,5 @@ if uploaded_file is not None:
     st.success(f"**{label}** with **{conf:.2f}%** confidence")
 
 st.markdown("---")
+
 st.caption("Model: Fine-tuned ResNet-50 | Trained on Kaggle Chest X-Ray Pneumonia dataset")
